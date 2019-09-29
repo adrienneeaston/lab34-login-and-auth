@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "jsonwebtoken": "8.5.1",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-jsonschema-form": "1.8.0",
