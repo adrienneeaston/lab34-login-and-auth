@@ -12,7 +12,7 @@ const App = props => {
       </header>
       <section>
         <Auth>
-          <div>Welcome Home</div>
+          {/* <div>Welcome Home</div> */}
           <ToDo />
         </Auth>
         <Auth capability="editor">

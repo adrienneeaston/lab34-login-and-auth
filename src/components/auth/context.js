@@ -6,11 +6,11 @@ const API = process.env.REACT_APP_API;
 
 export const LoginContext = React.createContext();
 
-const testLogins = {
-  testAdmin: process.env.REACT_APP_ADMIN_TOKEN || "",
-  testEditor: process.env.REACT_APP_EDITOR_TOKEN || "",
-  testUser: process.env.REACT_APP_USER_TOKEN || ""
-};
+// const testLogins = {
+//   testAdmin: process.env.REACT_APP_ADMIN_TOKEN || "",
+//   testEditor: process.env.REACT_APP_EDITOR_TOKEN || "",
+//   testUser: process.env.REACT_APP_USER_TOKEN || ""
+// };
 
 class LoginContextProvider extends React.Component {
   constructor(props) {
@@ -40,23 +40,19 @@ class LoginContextProvider extends React.Component {
   };
 
   validateToken = token => {
-    try {
-      let user = jwt.verify(token, process.env.REACT_APP_SECRET);
-      console.log("all good");
-      this.setLoginState(true, token, user);
-    } catch (e) {
-      this.setLoginState(false, null, {});
-      console.log("Token Validation Error", e);
+    // if it's ok ...
+    let user = jwt.verify(token, process.env.REACT_APP_SECRET);
+    console.log(user);
+    if (user.id) {
+      console.log("ok");
+      this.setState({ loggedIn: true, capabilities: user.capabilities });
     }
+    console.log(user);
+    // if not, set login to false
   };
 
   logout = () => {
-    this.setLoginState(false, null, {});
-  };
-
-  setLoginState = (loggedIn, token, user) => {
-    cookie.save("auth", token);
-    this.setState({ token, loggedIn, user });
+    this.setState({ loggedIn: false });
   };
 
   render() {
