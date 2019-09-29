@@ -18,8 +18,8 @@ class LoginContextProvider extends React.Component {
     this.state = {
       loggedIn: false,
       login: this.login,
-      logout: this.logout,
-      user: {}
+      logout: this.logout
+      // user: {}
     };
   }
 
