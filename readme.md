@@ -6,7 +6,7 @@
 
 ### Links and Resources
 
-- [submission PR]()
+- [submission PR](https://github.com/adrienneeaston/lab34-login-and-auth/pull/3)
 
 #### Documentation
 
